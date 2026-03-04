@@ -449,8 +449,8 @@
 
     /* Scroll reveal */
     .reveal {
-      opacity: 0; transform: translateY(16px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      opacity: 1;
+      transform: none;
     }
     .reveal.visible { opacity: 1; transform: none; }
 
@@ -555,7 +555,7 @@
         <h1 class="hero-name">Muhammad Danish<br/>Tehseen</h1>
         <p class="hero-tagline">PhD Researcher in Electrical Engineering at KAIST, specializing in energy-efficient AI systems, Agentic AI, and computational storage architectures. Published in ACM TECS and USENIX ATC.</p>
         <div class="hero-cta">
-          <a href="mailto:danishtehseen703@gmail.com" class="btn btn-primary">Get in Touch</a>
+          <a href="/cdn-cgi/l/email-protection#4d292c23243e253928253e2828237a7d7e0d2a202c2421632e2220" class="btn btn-primary">Get in Touch</a>
           <a href="https://linkedin.com" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
         </div>
       </div>
@@ -794,17 +794,16 @@
 
   </div><!-- /main -->
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Scroll reveal
     const revealObs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.01, rootMargin: "0px 0px -20px 0px" });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // Fallback: make all visible after short delay
+    setTimeout(() => { document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')); }, 600);
 
     // Active nav
     const sections = document.querySelectorAll('.cv-section');
-    const navItems = document.querySelectorAll('.nav-item');
-    const navObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          navItems.f
+    const navItems = document.querySelecto
